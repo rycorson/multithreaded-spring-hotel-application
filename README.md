@@ -1,29 +1,65 @@
-<strong> **DO NOT DISTRIBUTE OR PUBLICLY POST SOLUTIONS TO THESE LABS. MAKE ALL FORKS OF THIS REPOSITORY WITH SOLUTION CODE PRIVATE. PLEASE REFER TO THE STUDENT CODE OF CONDUCT AND ETHICAL EXPECTATIONS FOR COLLEGE OF INFORMATION TECHNOLOGY STUDENTS FOR SPECIFICS. ** </strong>
+This project was initially used for an Advanced Java Programming course.
 
-# WESTERN GOVERNORS UNIVERSITY 
-## D387 – ADVANCED JAVA
-Welcome to Advanced Java! This is an opportunity for students to write multithreaded object-oriented code using Java frameworks and determine how to deploy software applications using cloud services.
+# Multi-threaded Spring Hotel Application 
 
-FOR SPECIFIC TASK INSTRUCTIONS AND REQUIREMENTS FOR THIS ASSESSMENT, PLEASE REFER TO THE COURSE PAGE.
-## BASIC INSTRUCTIONS
-For this assessment, you will modify a Spring application with a Java back end and an Angular front end to include multithreaded language translation, a message at different time zones, and currency exchange. Then, build a Docker image of the current multithreaded Spring application and containerize it using the supporting documents provided in this task.
+## Overview
+This project is a multithreaded hotel scheduling application built with a Java Spring Boot backend and an Angular frontend. 
 
+Originally a standard scheduling application, it was refactored to support global operations. The application features concurrent multithreading for internationalization, cross-time-zone synchronization, and multi-currency pricing displays. 
 
-## SUPPLEMENTAL RESOURCES 
-1.	How to clone a project to IntelliJ using Git?
+The project was ultimately containerized using Docker and configured for cloud deployment on Microsoft Azure for my IT College.
 
-> Ensure that you have Git installed on your system and that IntelliJ is installed using [Toolbox](https://www.jetbrains.com/toolbox-app/). Make sure that you are using version 2022.3.2. Once this has been confirmed, click the clone button and use the 'IntelliJ IDEA (HTTPS)' button. This will open IntelliJ with a prompt to clone the proejct. Save it in a safe location for the directory and press clone. IntelliJ will prompt you for your credentials. Enter in your WGU Credentials and the project will be cloned onto your local machine.  
+## Technologies & Environment
+* **Frontend:** Angular, TypeScript, HTML, CSS
+* **Backend:** Java, Spring Boot, Spring Web
+* **Concurrency:** Java Multithreading (`java.lang.Thread`)
+* **DevOps & Cloud:** Docker, Microsoft Azure
 
-2. How to create a branch and start Development?
+## Key Features & Technical Highlights
 
-- GitLab method
-> Press the '+' button located near your branch name. In the dropdown list, press the 'New branch' button. This will allow you to create a name for your branch. Once the branch has been named, you can select 'Create Branch' to push the branch to your repository.
+* **Concurrent Localization:** Implements Java multithreading to concurrently process and serve localized resource bundles. The application generates and displays UI elements in multiple languages (English and French) simultaneously without blocking the main execution thread.
+* **Global Time Zone Synchronization:** Features a backend conversion utility that translates presentation schedules across varying global time zones (Eastern Time, Mountain Time, and Coordinated Universal Time) for international users.
+* **Multi-Currency UI Display:** Adapts the Angular frontend to process and display reservation pricing across different fiat currencies (USD, CAD, EUR). **just for currency display, not total conversion**
+* **Docker Containerization:** Utilizes a custom `Dockerfile` to package the entire Spring Boot application, Angular client, and underlying environment dependencies into a single, portable, and reproducible Docker image.
+* **Cloud Deployment:** Designed and configured for scalable deployment to Microsoft Azure cloud services using the generated Docker container.
 
-- IntelliJ method
-> In IntelliJ, Go to the 'Git' button on the top toolbar. Select the new branch option and create a name for the branch. Make sure checkout branch is selected and press create. You can now add a commit message and push the new branch to the local repo.
+## Repository Structure
+* `/frontend`: Contains the Angular SPA client.
+* `/backend`: Contains the Spring Boot REST API and Java concurrency logic.
+* `Dockerfile`: The declarative configuration file used to assemble the application image.
 
-## SUPPORT
-If you need additional support, please navigate to the course page and reach out to your course instructor.
-## FUTURE USE
-Take this opportunity to create or add to a simple resume portfolio to highlight and showcase your work for future use in career search, experience, and education!
+## How to Run Locally
 
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/rycorson/multithreaded-spring-hotel-application.git
+2. Start the Spring Boot Backend:
+   Open your first terminal window:
+   ```bash
+    # Navigate to the backend directory
+    cd backend
+    
+    # Run the Spring Boot application (Mac/Linux)
+    ./mvnw spring-boot:run
+    
+    # OR run the Spring Boot application (Windows)
+    mvnw.cmd spring-boot:run
+   ```
+   The REST API will launch on htt[://localhost:8080
+3. Start the Angular Front-end:
+   ```bash
+   # Navigate to the frontend directory
+    cd frontend
+    
+    # Install Node dependencies
+    npm install
+    
+    # Start the Angular development server
+    ng serve
+   ```
+   The front-end application will launch on http://localhost:4200
+
+   ## Author
+   Ryan Corson
+   * Github: @rycorson
+   * LinkedIn: https://www.linkedin.com/in/ryan-corson/
